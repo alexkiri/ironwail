@@ -12,3 +12,8 @@ jobs:
       run: brew install libvorbis mad sdl2
     - name: Build
       run: make --jobs=3 --keep-going --directory=Quake COMMON_LIBS="-framework CoreFoundation -framework IOKit -framework OpenGL -Wl,-alias -Wl,_SDL_main -Wl,_main"
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ironwail-mac
+        path: Quake/ironwail

@@ -14,3 +14,8 @@ jobs:
       run: sudo apt update && sudo apt install libcurl4-openssl-dev libmad0-dev libsdl2-dev libvorbis-dev
     - name: Build
       run: make --jobs=3 --keep-going --directory=Quake CC=${{ matrix.compiler }}
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: ironwail-linux-${{ matrix.compiler }}
+        path: Quake/ironwail
